@@ -16,9 +16,5 @@ endif()
 
 # a. ii. Use env CPPFLAGS as compiler flags
 if(DEFINED ENV{CPPFLAGS})
-  if (CMAKE_CXX_FLAGS)
-    list(APPEND CMAKE_CXX_FLAGS "$ENV{CPPFLAGS}")
-  else()
-    set(CMAKE_CXX_FLAGS "$ENV{CPPFLAGS}" CACHE STRING "The cxx compiler flags.")
-  endif()
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} $ENV{CPPFLAGS}" CACHE STRING "Flags used by the CXX compiler during all build types." FORCE)
 endif()
