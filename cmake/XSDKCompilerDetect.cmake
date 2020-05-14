@@ -10,8 +10,9 @@
 
 # 3. Compilers and Flags
 # a. i. Use env CPP as compiler
+# CMake does not support an independent C PreProcessor definition
 if(DEFINED ENV{CPP})
-  set(CMAKE_CXX_COMPILER "$ENV{CPP}" CACHE STRING "The CXX compiler.")
+  message(WARNING "Environment variable CPP is defined but it will be ignored by CMake!")
 endif()
 
 # a. ii. Use env CPPFLAGS as compiler flags
